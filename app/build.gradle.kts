@@ -34,6 +34,11 @@ android {
 }
 
 dependencies {
+    implementation(project(Modules.core))
+    implementation(project(Modules.repository))
+    implementation(project(Modules.Features.stationDetailScreen))
+    implementation(project(Modules.Features.stationsScreen))
+
     implementation(Kotlin.core)
     implementation(Design.appcompat)
     implementation(Design.material)

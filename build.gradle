@@ -23,6 +23,9 @@ subprojects {
                     sourceCompatibility Config.javaVersion
                     targetCompatibility Config.javaVersion
                 }
+                kotlinOptions {
+                    jvmTarget = Config.jvmTarget
+                }
             }
         }
     }

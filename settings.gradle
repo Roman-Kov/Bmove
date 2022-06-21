@@ -14,3 +14,9 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Bmove"
 include ':app'
+include ':core'
+include ':model'
+include ':utils'
+include ':repository'
+include ':features:stationDetailScreen'
+include ':features:stationsScreen'

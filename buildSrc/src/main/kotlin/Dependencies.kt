@@ -22,15 +22,18 @@ object Plugins {
 }
 
 object Modules {
+
     const val app = ":app"
     const val core = ":core"
     const val model = ":model"
     const val repository = ":repository"
     const val utils = ":utils"
 
-    //Features
-    const val stationsScreen = ":stationsScreen"
-    const val stationDetailScreen = ":stationDetailScreen"
+    object Features {
+
+        const val stationsScreen = ":features:stationsScreen"
+        const val stationDetailScreen = ":features:stationDetailScreen"
+    }
 }
 
 object Versions {
