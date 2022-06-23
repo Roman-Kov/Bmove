@@ -46,6 +46,10 @@ object Versions {
     const val appcompat = "1.4.2"
     const val material = "1.6.1"
     const val constraintlayout = "2.1.4"
+    //Dagger
+    const val dagger = "2.40"
+    // Fragments
+    const val fragments = "1.4.1"
     //Test
     const val jUnit = "4.13.2"
     const val androidJUnit = "1.1.3"
@@ -62,8 +66,17 @@ object Design {
     const val constraintlayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintlayout}"
 }
 
+object Ui {
+    const val fragments = "androidx.fragment:fragment-ktx:${Versions.fragments}"
+}
+
 object Test {
     const val jUnit = "junit:junit:${Versions.jUnit}"
     const val androidJUnit = "androidx.test.ext:${Versions.androidJUnit}"
     const val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
+}
+
+object Dagger {
+    const val dagger = "com.google.dagger:dagger:${Versions.dagger}"
+    const val daggerCompiler = "com.google.dagger:dagger-compiler:${Versions.dagger}"
 }

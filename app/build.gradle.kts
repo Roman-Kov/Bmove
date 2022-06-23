@@ -43,6 +43,8 @@ dependencies {
     implementation(Design.appcompat)
     implementation(Design.material)
     implementation(Design.constraintlayout)
+    implementation(Dagger.dagger)
+    kapt(Dagger.daggerCompiler)
     testImplementation(Test.jUnit)
     androidTestImplementation(Test.androidJUnit)
     androidTestImplementation(Test.espressoCore)
