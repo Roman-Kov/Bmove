@@ -6,10 +6,12 @@ import com.rojer_ko.stationdetailscreen.di.StationDetailsDeps
 import com.rojer_ko.stationsscreen.di.StationsDeps
 import dagger.BindsInstance
 import dagger.Component
-import javax.inject.Singleton
+import javax.inject.Scope
 
+@Scope
+annotation class AppScope
 @[
-Singleton
+AppScope
 Component(modules = [AppModule::class])
 ]
 interface AppComponent : StationDetailsDeps, StationsDeps {
@@ -21,6 +23,7 @@ interface AppComponent : StationDetailsDeps, StationsDeps {
 
         @BindsInstance
         fun application(application: Application): Builder
+        @BindsInstance
         fun appDeps(appDeps: AppDeps): Builder
         fun build(): AppComponent
     }
