@@ -5,6 +5,8 @@ import android.content.Context
 import com.rojer_ko.bmove.di.AppComponent
 import com.rojer_ko.bmove.di.AppDeps
 import com.rojer_ko.bmove.di.DaggerAppComponent
+import com.rojer_ko.stationsscreen.di.StationsDepsProvider
+import com.rojer_ko.stationsscreen.di.StationsDepsStore
 
 class App : Application() {
 
@@ -16,6 +18,8 @@ class App : Application() {
             .application(this)
             .appDeps(AppDepsImpl())
             .build()
+
+        StationsDepsStore.deps = appComponent
     }
 
     private inner class AppDepsImpl : AppDeps {

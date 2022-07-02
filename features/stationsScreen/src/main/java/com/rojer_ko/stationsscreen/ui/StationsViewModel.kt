@@ -1,9 +1,21 @@
 package com.rojer_ko.stationsscreen.ui
 
 import androidx.lifecycle.ViewModel
-import com.rojer_ko.stationsscreen.di.DaggerStationsComponent
+import androidx.lifecycle.viewModelScope
+import com.rojer_ko.core.repo.StationsRepository
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-internal class StationsViewModel: ViewModel() {
+class StationsViewModel @Inject constructor(private val stationsRepository: StationsRepository) : ViewModel() {
 
-    val stationsComponent = DaggerStationsComponent.builder().build()
+    private val _stations: MutableStateFlow<List<String>> = MutableStateFlow(listOf())
+    val stations: StateFlow<List<String>> = _stations
+
+    fun getStations() = viewModelScope.launch {
+        stationsRepository.getStations().let { result ->
+            _stations.emit(result as List<String>)
+        }
+    }
 }

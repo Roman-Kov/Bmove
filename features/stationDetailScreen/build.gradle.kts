@@ -22,7 +22,6 @@ android {
 dependencies {
     implementation(project(Modules.core))
 
-    implementation(Kotlin.core)
     implementation(Ui.fragments)
     implementation(Dagger.dagger)
     kapt(Dagger.daggerCompiler)

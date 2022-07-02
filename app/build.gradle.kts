@@ -42,6 +42,7 @@ dependencies {
     implementation(Kotlin.core)
     implementation(Design.appcompat)
     implementation(Design.material)
+    implementation(Ui.viewBinding)
     implementation(Design.constraintlayout)
     implementation(Dagger.dagger)
     kapt(Dagger.daggerCompiler)

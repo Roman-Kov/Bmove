@@ -42,10 +42,15 @@ object Versions {
     const val kotlinPlugin = "1.6.21"
     //Kotlin
     const val kotlinCore = "1.8.0"
+    //Coroutines
+    const val coroutines = "1.3.9"
+    //JetPack
+    const val livecycle = "2.4.1"
     //Design
     const val appcompat = "1.4.2"
     const val material = "1.6.1"
     const val constraintlayout = "2.1.4"
+    const val viewBinding = "1.5.6"
     //Dagger
     const val dagger = "2.40"
     // Fragments
@@ -57,7 +62,15 @@ object Versions {
 }
 
 object Kotlin {
+
     const val core = "androidx.core:core-ktx:${Versions.kotlinCore}"
+    const val coroutinesAndroidLibrary = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+}
+
+object LiveCycle {
+
+    const val viewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.livecycle}"
+    const val livecycle = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.livecycle}"
 }
 
 object Design {
@@ -67,7 +80,9 @@ object Design {
 }
 
 object Ui {
+
     const val fragments = "androidx.fragment:fragment-ktx:${Versions.fragments}"
+    const val viewBinding = "com.github.kirich1409:viewbindingpropertydelegate-noreflection:${Versions.viewBinding}"
 }
 
 object Test {

@@ -10,6 +10,7 @@ import javax.inject.Scope
 
 @Scope
 annotation class AppScope
+
 @[
 AppScope
 Component(modules = [AppModule::class])
@@ -23,6 +24,7 @@ interface AppComponent : StationDetailsDeps, StationsDeps {
 
         @BindsInstance
         fun application(application: Application): Builder
+
         @BindsInstance
         fun appDeps(appDeps: AppDeps): Builder
         fun build(): AppComponent
