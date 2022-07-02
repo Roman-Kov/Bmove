@@ -4,7 +4,6 @@ import com.rojer_ko.core.repo.StationsRepository
 import com.rojer_ko.repository.StationsRepositoryImpl
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
 
 @Module
 class AppModule {

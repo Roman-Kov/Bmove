@@ -13,7 +13,7 @@ annotation class AppScope
 
 @[
 AppScope
-Component(modules = [AppModule::class])
+Component(modules = [AppModule::class, ViewModelsModule::class])
 ]
 interface AppComponent : StationDetailsDeps, StationsDeps {
 

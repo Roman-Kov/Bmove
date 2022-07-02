@@ -3,6 +3,8 @@ package com.rojer_ko.stationsscreen.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.rojer_ko.core.repo.StationsRepository
+import com.rojer_ko.stationsscreen.di.DaggerStationsComponent
+import com.rojer_ko.stationsscreen.di.StationsDepsProvider
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
