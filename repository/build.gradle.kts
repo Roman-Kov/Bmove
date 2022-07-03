@@ -21,8 +21,10 @@ android {
 
 dependencies {
     implementation(project(Modules.core))
+    implementation(project(Modules.model))
 
     implementation(Kotlin.core)
+    implementation(Ktor.client)
     testImplementation(Test.jUnit)
     androidTestImplementation(Test.androidJUnit)
 }

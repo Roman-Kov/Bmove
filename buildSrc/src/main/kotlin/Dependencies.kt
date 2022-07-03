@@ -19,6 +19,7 @@ object Plugins {
     const val kotlinAndroid = "org.jetbrains.kotlin.android"
     const val androidLibrary = "com.android.library"
     const val kapt = "kotlin-kapt"
+    const val serialization = "plugin.serialization"
 }
 
 object Modules {
@@ -40,8 +41,10 @@ object Versions {
     //Plugins
     const val application = "7.2.0"
     const val kotlinPlugin = "1.6.21"
+    const val serializationPlugin = "1.7.0"
     //Kotlin
     const val kotlinCore = "1.8.0"
+    const val serialization = "1.3.2"
     //Coroutines
     const val coroutines = "1.3.9"
     //JetPack
@@ -59,12 +62,15 @@ object Versions {
     const val jUnit = "4.13.2"
     const val androidJUnit = "1.1.3"
     const val espressoCore = "3.4.0"
+    //Ktor
+    const val ktor = "2.0.3"
 }
 
 object Kotlin {
 
     const val core = "androidx.core:core-ktx:${Versions.kotlinCore}"
     const val coroutinesAndroidLibrary = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+    const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.serialization}"
 }
 
 object LiveCycle {
@@ -94,4 +100,8 @@ object Test {
 object Dagger {
     const val dagger = "com.google.dagger:dagger:${Versions.dagger}"
     const val daggerCompiler = "com.google.dagger:dagger-compiler:${Versions.dagger}"
+}
+
+object Ktor {
+    const val client = "io.ktor:ktor-client-cio:${Versions.ktor}"
 }
