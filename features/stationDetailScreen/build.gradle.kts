@@ -21,9 +21,10 @@ android {
 
 dependencies {
     implementation(project(Modules.core))
-    implementation(project(Modules.repository))
 
-    implementation(Kotlin.core)
+    implementation(Ui.fragments)
+    implementation(Dagger.dagger)
+    kapt(Dagger.daggerCompiler)
     testImplementation(Test.jUnit)
     androidTestImplementation(Test.androidJUnit)
     androidTestImplementation(Test.espressoCore)

@@ -42,10 +42,19 @@ object Versions {
     const val kotlinPlugin = "1.6.21"
     //Kotlin
     const val kotlinCore = "1.8.0"
+    //Coroutines
+    const val coroutines = "1.3.9"
+    //JetPack
+    const val livecycle = "2.4.1"
     //Design
     const val appcompat = "1.4.2"
     const val material = "1.6.1"
     const val constraintlayout = "2.1.4"
+    const val viewBinding = "1.5.6"
+    //Dagger
+    const val dagger = "2.40"
+    // Fragments
+    const val fragments = "1.4.1"
     //Test
     const val jUnit = "4.13.2"
     const val androidJUnit = "1.1.3"
@@ -53,7 +62,15 @@ object Versions {
 }
 
 object Kotlin {
+
     const val core = "androidx.core:core-ktx:${Versions.kotlinCore}"
+    const val coroutinesAndroidLibrary = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+}
+
+object LiveCycle {
+
+    const val viewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.livecycle}"
+    const val livecycle = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.livecycle}"
 }
 
 object Design {
@@ -62,8 +79,19 @@ object Design {
     const val constraintlayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintlayout}"
 }
 
+object Ui {
+
+    const val fragments = "androidx.fragment:fragment-ktx:${Versions.fragments}"
+    const val viewBinding = "com.github.kirich1409:viewbindingpropertydelegate-noreflection:${Versions.viewBinding}"
+}
+
 object Test {
     const val jUnit = "junit:junit:${Versions.jUnit}"
     const val androidJUnit = "androidx.test.ext:${Versions.androidJUnit}"
     const val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
+}
+
+object Dagger {
+    const val dagger = "com.google.dagger:dagger:${Versions.dagger}"
+    const val daggerCompiler = "com.google.dagger:dagger-compiler:${Versions.dagger}"
 }
