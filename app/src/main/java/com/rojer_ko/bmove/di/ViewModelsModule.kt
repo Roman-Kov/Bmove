@@ -9,7 +9,7 @@ import javax.inject.Singleton
 @Module
 abstract class ViewModelsModule {
 
-    @Singleton
+    @AppScope
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
 }
