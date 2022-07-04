@@ -24,7 +24,10 @@ dependencies {
     implementation(project(Modules.model))
 
     implementation(Kotlin.core)
-    implementation(Ktor.client)
+    implementation(Kotlin.serialization)
+    api(Ktor.client)
+    api(Ktor.json)
+    api(Ktor.clientSerialization)
     testImplementation(Test.jUnit)
     androidTestImplementation(Test.androidJUnit)
 }

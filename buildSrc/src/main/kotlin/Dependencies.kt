@@ -40,8 +40,6 @@ object Modules {
 object Versions {
     //Plugins
     const val application = "7.2.0"
-    const val kotlinPlugin = "1.6.21"
-    const val serializationPlugin = "1.7.0"
     //Kotlin
     const val kotlinCore = "1.8.0"
     const val serialization = "1.3.2"
@@ -63,7 +61,7 @@ object Versions {
     const val androidJUnit = "1.1.3"
     const val espressoCore = "3.4.0"
     //Ktor
-    const val ktor = "2.0.3"
+    const val ktor = "1.6.6"
 }
 
 object Kotlin {
@@ -103,5 +101,7 @@ object Dagger {
 }
 
 object Ktor {
-    const val client = "io.ktor:ktor-client-cio:${Versions.ktor}"
+    const val client = "io.ktor:ktor-client-android:${Versions.ktor}"
+    const val json = "io.ktor:ktor-client-json:${Versions.ktor}"
+    const val clientSerialization = "io.ktor:ktor-client-serialization:${Versions.ktor}"
 }
