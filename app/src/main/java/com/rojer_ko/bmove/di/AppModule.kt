@@ -1,9 +1,11 @@
 package com.rojer_ko.bmove.di
 
+import android.app.Application
 import android.content.Context
 import com.rojer_ko.core.repo.StationsRepository
 import com.rojer_ko.repository.StationsRepositoryImpl
 import com.rojer_ko.repository.db.StationsDb
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import io.ktor.client.*
@@ -14,6 +16,10 @@ import kotlinx.serialization.json.Json
 
 @Module
 class AppModule {
+
+    @AppScope
+    @Provides
+    fun context(appInstance: Application): Context = appInstance
 
     @AppScope
     @Provides

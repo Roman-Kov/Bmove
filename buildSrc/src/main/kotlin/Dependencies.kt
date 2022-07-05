@@ -43,7 +43,6 @@ object Versions {
     //Kotlin
     const val kotlinCore = "1.8.0"
     const val serialization = "1.3.2"
-    const val kotlinCompilerExtension = "1.3.0-alpha01"
     //Coroutines
     const val coroutines = "1.3.9"
     //JetPack
@@ -65,6 +64,8 @@ object Versions {
     const val ktor = "1.6.6"
     //Room
     const val room = "2.4.2"
+    //Compose
+    const val compose = "1.1.1"
 }
 
 object Kotlin {
@@ -113,4 +114,16 @@ object Room {
     const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
     const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
     const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
+}
+
+object Compose {
+
+    const val composeUiTooling = "androidx.compose.ui:ui-tooling:${Versions.compose}"
+    const val composeRuntime = "androidx.compose.runtime:runtime:${Versions.compose}"
+    const val composeMaterial = "androidx.compose.material:material:${Versions.compose}"
+    const val composeFoundation = "androidx.compose.foundation:foundation:${Versions.compose}"
+    const val composeFoundationLayout = "androidx.compose.foundation:foundation-layout:${Versions.compose}"
+    const val composeLivecycle = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.livecycle}"
+    const val composeUi = "androidx.compose.ui:ui:${Versions.compose}"
+    const val composeUIPreview = "androidx.compose.ui:ui-tooling-preview:${Versions.compose}"
 }
