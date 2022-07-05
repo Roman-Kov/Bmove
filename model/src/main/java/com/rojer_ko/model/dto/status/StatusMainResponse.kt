@@ -1,4 +1,4 @@
-package com.rojer_ko.model.status
+package com.rojer_ko.model.dto.status
 
 import kotlinx.serialization.Serializable
 

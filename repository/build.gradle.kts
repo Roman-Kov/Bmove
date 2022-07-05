@@ -28,6 +28,9 @@ dependencies {
     api(Ktor.client)
     api(Ktor.json)
     api(Ktor.clientSerialization)
+    api(Room.roomRuntime)
+    api(Room.roomKtx)
+    kapt(Room.roomCompiler)
     testImplementation(Test.jUnit)
     androidTestImplementation(Test.androidJUnit)
 }

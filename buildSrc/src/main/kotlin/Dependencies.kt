@@ -43,6 +43,7 @@ object Versions {
     //Kotlin
     const val kotlinCore = "1.8.0"
     const val serialization = "1.3.2"
+    const val kotlinCompilerExtension = "1.3.0-alpha01"
     //Coroutines
     const val coroutines = "1.3.9"
     //JetPack
@@ -62,6 +63,8 @@ object Versions {
     const val espressoCore = "3.4.0"
     //Ktor
     const val ktor = "1.6.6"
+    //Room
+    const val room = "2.4.2"
 }
 
 object Kotlin {
@@ -104,4 +107,10 @@ object Ktor {
     const val client = "io.ktor:ktor-client-android:${Versions.ktor}"
     const val json = "io.ktor:ktor-client-json:${Versions.ktor}"
     const val clientSerialization = "io.ktor:ktor-client-serialization:${Versions.ktor}"
+}
+
+object Room {
+    const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
+    const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
+    const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
 }

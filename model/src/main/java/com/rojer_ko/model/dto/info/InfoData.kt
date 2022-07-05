@@ -1,4 +1,4 @@
-package com.rojer_ko.model.info
+package com.rojer_ko.model.dto.info
 
 import kotlinx.serialization.Serializable
 
