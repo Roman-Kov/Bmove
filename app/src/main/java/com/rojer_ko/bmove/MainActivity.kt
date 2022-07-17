@@ -1,5 +1,7 @@
 package com.rojer_ko.bmove
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -7,6 +9,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.rojer_ko.bmove.databinding.ActivityMainBinding
 import com.rojer_ko.core.navigator.Navigator
 import com.rojer_ko.core.navigator.NavigatorScreens
+import com.rojer_ko.model.dto.info.StationsInfo
 import com.rojer_ko.stationdetailscreen.ui.StationDetailsFragment
 import com.rojer_ko.stationsscreen.ui.StationsFragment
 import javax.inject.Inject
@@ -25,10 +28,17 @@ class MainActivity : AppCompatActivity() {
         navigate(startFragment)
 
         navigator.setNavigatorListener { navDestination ->
-            val fragment = when (navDestination.screen) {
-                NavigatorScreens.STATION_DETAILS -> StationDetailsFragment.createInstance(navDestination.params)
+            when (navDestination.screen) {
+                NavigatorScreens.STATION_DETAILS -> {
+                    val fragment = StationDetailsFragment.createInstance(navDestination.params)
+                    navigate(fragment)
+                }
+                NavigatorScreens.MAP -> {
+                    (navDestination.params.getSerializable(NavigatorScreens.MAP.name) as? StationsInfo)?.let {
+                        openMap(it)
+                    }
+                }
             }
-            navigate(fragment)
         }
     }
 
@@ -38,5 +48,12 @@ class MainActivity : AppCompatActivity() {
             .replace(binding.container.id, fragment)
             .addToBackStack("main")
             .commit()
+    }
+
+    private fun openMap(stationsInfo: StationsInfo) {
+        val geoUriString = "geo:${stationsInfo.lat}, ${stationsInfo.lon}"
+        val geoUri: Uri = Uri.parse(geoUriString)
+        val mapIntent = Intent(Intent.ACTION_VIEW, geoUri)
+        startActivity(mapIntent)
     }
 }

@@ -2,5 +2,6 @@ package com.rojer_ko.core.navigator
 
 enum class NavigatorScreens {
 
-    STATION_DETAILS
+    STATION_DETAILS,
+    MAP
 }

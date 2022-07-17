@@ -2,5 +2,6 @@ package com.rojer_ko.core.navigator
 
 enum class NavigatorParams {
 
-    STATION_INFO
+    STATION_INFO,
+    MAP
 }

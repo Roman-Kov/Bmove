@@ -23,4 +23,13 @@ class NavigatorImpl : Navigator {
             )
         )
     }
+
+    override fun openMap(station: StationsInfo) {
+        navListener?.invoke(
+            NavigatorDestination(
+                NavigatorScreens.MAP,
+                bundleOf(NavigatorParams.MAP.name to station)
+            )
+        )
+    }
 }

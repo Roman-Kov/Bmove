@@ -6,4 +6,5 @@ interface Navigator {
 
     fun setNavigatorListener(listener: ((NavigatorDestination) -> Unit))
     fun navigateToStationDetails(station: StationsInfo)
+    fun openMap(station: StationsInfo)
 }

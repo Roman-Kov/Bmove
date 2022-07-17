@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.rojer_ko.core.navigator.Navigator
 import com.rojer_ko.core.navigator.NavigatorParams
 import com.rojer_ko.model.dto.info.StationsInfo
 import com.rojer_ko.stationdetailscreen.R
@@ -21,6 +22,9 @@ class StationDetailsFragment : Fragment(R.layout.fragment_station_details) {
 
     private val binding by viewBinding(FragmentStationDetailsBinding::bind)
     private val stationDetailsComponent by lazy { DaggerStationDetailsComponent.builder().deps(StationDetailsDepsProvider.deps).build() }
+
+    @Inject
+    lateinit var navigator: Navigator
 
     @Inject
     lateinit var viewModelFactory: StationDetailsViewModelFactory
@@ -44,6 +48,9 @@ class StationDetailsFragment : Fragment(R.layout.fragment_station_details) {
         }
 
         location.setOnClickListener {
+            (arguments?.getSerializable(NavigatorParams.STATION_INFO.name) as? StationsInfo)?.let { info ->
+                navigator.openMap(info)
+            }
         }
     }
 
