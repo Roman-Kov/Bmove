@@ -24,6 +24,7 @@ dependencies {
 
     implementation(Ui.viewBinding)
     implementation(Ui.fragments)
+    implementation(Ui.lottie)
     implementation(Design.constraintlayout)
     implementation(Design.swipeRefreshLayout)
     implementation(Dagger.dagger)

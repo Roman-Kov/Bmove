@@ -53,6 +53,8 @@ class StationDetailsFragment : Fragment(R.layout.fragment_station_details) {
                 viewModel.getStationDetail(info.station_id).collect { station ->
                     infoContainer.isVisible = true
                     swipeContainer.isRefreshing = false
+                    lottieAnimation.isVisible = false
+                    lottieAnimation.pauseAnimation()
                     name.text = info.name
                     stationCount.text = station.num_docks_available.toString()
                     pBikeCount.text = station.mechanicalAvailable.toString()
@@ -66,6 +68,8 @@ class StationDetailsFragment : Fragment(R.layout.fragment_station_details) {
         if (withRefresh) {
             swipeContainer.isRefreshing = true
             infoContainer.isVisible = false
+            lottieAnimation.isVisible = true
+            lottieAnimation.playAnimation()
         }
         viewModel.updateData()
     }

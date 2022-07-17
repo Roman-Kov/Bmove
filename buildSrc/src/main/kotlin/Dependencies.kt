@@ -67,6 +67,8 @@ object Versions {
     const val room = "2.4.2"
     //Compose
     const val compose = "1.1.1"
+    //Lottie
+    const val lottie = "3.4.0"
 }
 
 object Kotlin {
@@ -93,6 +95,7 @@ object Ui {
 
     const val fragments = "androidx.fragment:fragment-ktx:${Versions.fragments}"
     const val viewBinding = "com.github.kirich1409:viewbindingpropertydelegate-noreflection:${Versions.viewBinding}"
+    const val lottie = "com.airbnb.android:lottie:${Versions.lottie}"
 }
 
 object Test {
