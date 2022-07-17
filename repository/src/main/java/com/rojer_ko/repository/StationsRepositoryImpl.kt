@@ -11,10 +11,7 @@ import com.rojer_ko.repository.db.StationsDb
 import io.ktor.client.*
 import io.ktor.client.request.*
 import kotlinx.coroutines.CancellationException
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.mapNotNull
+import kotlinx.coroutines.flow.*
 
 class StationsRepositoryImpl(
     private val httpClient: HttpClient,
@@ -32,8 +29,8 @@ class StationsRepositoryImpl(
 
     override suspend fun getStationDetails(id: Int): Flow<Station> {
         val dao = stationsDb.getDao()
-        return dao.getStation(id)?.mapNotNull {
-            it?.toStation()
+        return dao.getStation(id)?.filterNotNull()?.map {
+            it.toStation()
         } ?: flowOf()
     }
 
