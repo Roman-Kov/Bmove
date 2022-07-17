@@ -56,4 +56,9 @@ class MainActivity : AppCompatActivity() {
         val mapIntent = Intent(Intent.ACTION_VIEW, geoUri)
         startActivity(mapIntent)
     }
+
+    override fun onBackPressed() {
+        if (supportFragmentManager.backStackEntryCount > 1) supportFragmentManager.popBackStack()
+        else finish()
+    }
 }
