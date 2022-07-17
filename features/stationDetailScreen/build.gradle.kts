@@ -6,14 +6,6 @@ plugins {
 
 android {
 
-    buildFeatures {
-        compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = Versions.compose
-    }
-
     defaultConfig {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -30,17 +22,10 @@ android {
 dependencies {
     implementation(project(Modules.core))
 
+    implementation(Ui.viewBinding)
     implementation(Ui.fragments)
     implementation(Dagger.dagger)
     kapt(Dagger.daggerCompiler)
-    implementation(Compose.composeMaterial)
-    implementation(Compose.composeFoundation)
-    implementation(Compose.composeFoundationLayout)
-    implementation(Compose.composeRuntime)
-    implementation(Compose.composeUIPreview)
-    implementation(Compose.composeUi)
-    implementation(Compose.composeLivecycle)
-    implementation(Compose.composeUiTooling)
     testImplementation(Test.jUnit)
     androidTestImplementation(Test.androidJUnit)
     androidTestImplementation(Test.espressoCore)
