@@ -3,13 +3,12 @@ package com.rojer_ko.stationdetailscreen.di
 import com.rojer_ko.stationdetailscreen.ui.StationDetailsFragment
 import dagger.Component
 import javax.inject.Scope
-import javax.inject.Singleton
 
 @Scope
 annotation class StationDetailsScope
 @[
 StationDetailsScope
-Component(dependencies = [StationDetailsDeps::class])
+Component(dependencies = [StationDetailsDeps::class], modules = [StationDetailsModule::class])
 ]
 internal interface StationDetailsComponent {
 

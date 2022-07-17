@@ -8,8 +8,24 @@ import androidx.compose.material.Text
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import com.rojer_ko.core.navigator.NavigatorParams
+import com.rojer_ko.stationdetailscreen.di.DaggerStationDetailsComponent
+import com.rojer_ko.stationdetailscreen.di.StationDetailsDepsProvider
+import com.rojer_ko.stationdetailscreen.di.StationDetailsViewModelFactory
+import javax.inject.Inject
 
 class StationDetailsFragment : Fragment() {
+
+    private val stationDetailsComponent by lazy { DaggerStationDetailsComponent.builder().deps(StationDetailsDepsProvider.deps).build() }
+
+    @Inject
+    lateinit var viewModelFactory: StationDetailsViewModelFactory
+
+    //private val viewModel by lazy { ViewModelProvider(this, stationDetailsComponent.provideViewModelFactory())[StationDetailViewModel::class.java] }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        stationDetailsComponent.inject(this)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

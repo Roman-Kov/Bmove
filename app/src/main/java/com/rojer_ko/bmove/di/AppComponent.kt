@@ -15,7 +15,7 @@ annotation class AppScope
 
 @[
 AppScope
-Component(modules = [AppModule::class, ViewModelsModule::class])
+Component(modules = [AppModule::class])
 ]
 interface AppComponent : StationDetailsDeps, StationsDeps {
 

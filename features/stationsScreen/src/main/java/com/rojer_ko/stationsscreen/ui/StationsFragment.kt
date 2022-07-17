@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -33,14 +32,16 @@ import com.rojer_ko.model.dto.info.StationsInfo
 import com.rojer_ko.stationsscreen.R
 import com.rojer_ko.stationsscreen.di.DaggerStationsComponent
 import com.rojer_ko.stationsscreen.di.StationsDepsProvider
+import com.rojer_ko.stationsscreen.di.StationsViewModelFactory
 import javax.inject.Inject
 
 class StationsFragment : Fragment() {
 
     @Inject
-    lateinit var viewModelFactory: ViewModelFactory
-    @Inject
     lateinit var navigator: Navigator
+
+    @Inject
+    lateinit var viewModelFactory: StationsViewModelFactory
 
     private val stationsComponent by lazy { DaggerStationsComponent.builder().deps(StationsDepsProvider.deps).build() }
     private val viewModel by lazy { ViewModelProvider(this, viewModelFactory)[StationsViewModel::class.java] }
