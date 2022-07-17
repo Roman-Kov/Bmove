@@ -5,6 +5,7 @@ import com.rojer_ko.core.navigator.Navigator
 import com.rojer_ko.core.navigator.NavigatorDestination
 import com.rojer_ko.core.navigator.NavigatorParams
 import com.rojer_ko.core.navigator.NavigatorScreens
+import com.rojer_ko.model.dto.info.StationsInfo
 
 class NavigatorImpl : Navigator {
 
@@ -14,11 +15,11 @@ class NavigatorImpl : Navigator {
         navListener = listener
     }
 
-    override fun navigateToStationDetails(id: Int) {
+    override fun navigateToStationDetails(station: StationsInfo) {
         navListener?.invoke(
             NavigatorDestination(
                 NavigatorScreens.STATION_DETAILS,
-                bundleOf(NavigatorParams.STATION_ID.name to id)
+                bundleOf(NavigatorParams.STATION_INFO.name to station)
             )
         )
     }

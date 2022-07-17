@@ -24,6 +24,8 @@ dependencies {
 
     implementation(Ui.viewBinding)
     implementation(Ui.fragments)
+    implementation(Design.constraintlayout)
+    implementation(Design.swipeRefreshLayout)
     implementation(Dagger.dagger)
     kapt(Dagger.daggerCompiler)
     testImplementation(Test.jUnit)

@@ -16,4 +16,4 @@ data class StationsInfo (
 	val capacity : Int,
 	val is_charging_station : Boolean,
 	val nearby_distance : Float
-)
+): java.io.Serializable

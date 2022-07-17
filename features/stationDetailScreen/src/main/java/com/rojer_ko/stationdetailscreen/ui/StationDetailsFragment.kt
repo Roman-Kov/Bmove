@@ -2,11 +2,13 @@ package com.rojer_ko.stationdetailscreen.ui
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.rojer_ko.core.navigator.NavigatorParams
+import com.rojer_ko.model.dto.info.StationsInfo
 import com.rojer_ko.stationdetailscreen.R
 import com.rojer_ko.stationdetailscreen.databinding.FragmentStationDetailsBinding
 import com.rojer_ko.stationdetailscreen.di.DaggerStationDetailsComponent
@@ -31,18 +33,41 @@ class StationDetailsFragment : Fragment(R.layout.fragment_station_details) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        initViews()
         showStationDetails()
+        updateData(false)
     }
 
-    private fun showStationDetails() {
-        arguments?.getInt(NavigatorParams.STATION_ID.name)?.let { id ->
+    private fun initViews() = with(binding) {
+        swipeContainer.setOnRefreshListener {
+            updateData(true)
+        }
+
+        location.setOnClickListener {
+        }
+    }
+
+    private fun showStationDetails() = with(binding) {
+        (arguments?.getSerializable(NavigatorParams.STATION_INFO.name) as? StationsInfo)?.let { info ->
             lifecycleScope.launchWhenStarted {
-                viewModel.getStationDetail(id).collect { station ->
-                    binding.text.text = station.ebikeAvailable.toString()
+                viewModel.getStationDetail(info.station_id).collect { station ->
+                    infoContainer.isVisible = true
+                    swipeContainer.isRefreshing = false
+                    name.text = info.name
+                    stationCount.text = station.num_docks_available.toString()
+                    pBikeCount.text = station.mechanicalAvailable.toString()
+                    eBikeCount.text = station.ebikeAvailable.toString()
                 }
             }
         }
+    }
+
+    private fun updateData(withRefresh: Boolean) = with(binding) {
+        if (withRefresh) {
+            swipeContainer.isRefreshing = true
+            infoContainer.isVisible = false
+        }
+        viewModel.updateData()
     }
 
     companion object {

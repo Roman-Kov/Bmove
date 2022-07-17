@@ -8,4 +8,5 @@ interface StationsRepository {
 
    suspend fun getStations(): List<StationsInfo>
    suspend fun getStationDetails(id: Int): Flow<Station>
+   suspend fun updateStationDetails()
 }

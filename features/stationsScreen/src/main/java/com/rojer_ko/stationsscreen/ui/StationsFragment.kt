@@ -26,7 +26,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.rojer_ko.core.di.ViewModelFactory
 import com.rojer_ko.core.navigator.Navigator
 import com.rojer_ko.model.dto.info.StationsInfo
 import com.rojer_ko.stationsscreen.R
@@ -88,7 +87,7 @@ class StationsFragment : Fragment() {
                 )
                 .padding(horizontal = 16.dp, vertical = 5.dp)
                 .clickable {
-                    navigator.navigateToStationDetails(station.station_id)
+                    navigator.navigateToStationDetails(station)
                 }
         ) {
             Column(

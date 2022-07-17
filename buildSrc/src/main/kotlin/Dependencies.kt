@@ -51,6 +51,7 @@ object Versions {
     const val appcompat = "1.4.2"
     const val material = "1.6.1"
     const val constraintlayout = "2.1.4"
+    const val swipeRefreshLayout = "1.1.0"
     const val viewBinding = "1.5.6"
     //Dagger
     const val dagger = "2.40"
@@ -85,6 +86,7 @@ object Design {
     const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
     const val material = "com.google.android.material:material:${Versions.material}"
     const val constraintlayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintlayout}"
+    const val swipeRefreshLayout = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeRefreshLayout}"
 }
 
 object Ui {
