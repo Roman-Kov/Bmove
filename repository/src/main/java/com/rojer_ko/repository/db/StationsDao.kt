@@ -13,5 +13,5 @@ interface StationsDao {
     suspend fun insert(stations: List<StationEntity>): List<Long>
 
     @Query("SELECT * FROM StationEntity WHERE station_id = :id")
-    fun getStation(id: Int): Flow<StationEntity>
+    fun getStation(id: Int): Flow<StationEntity?>?
 }

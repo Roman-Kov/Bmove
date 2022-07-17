@@ -12,7 +12,9 @@ import io.ktor.client.*
 import io.ktor.client.request.*
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.mapNotNull
 
 class StationsRepositoryImpl(
     private val httpClient: HttpClient,
@@ -30,9 +32,9 @@ class StationsRepositoryImpl(
 
     override suspend fun getStationDetails(id: Int): Flow<Station> {
         val dao = stationsDb.getDao()
-        return dao.getStation(id).map {
-            it.toStation()
-        }
+        return dao.getStation(id)?.mapNotNull {
+            it?.toStation()
+        } ?: flowOf()
     }
 
     override suspend fun updateStationDetails() {
