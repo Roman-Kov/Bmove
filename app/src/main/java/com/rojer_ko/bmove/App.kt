@@ -5,12 +5,10 @@ import android.content.Context
 import com.rojer_ko.bmove.di.AppComponent
 import com.rojer_ko.bmove.di.AppDeps
 import com.rojer_ko.bmove.di.DaggerAppComponent
-import com.rojer_ko.stationsscreen.di.StationsDepsProvider
 import com.rojer_ko.stationsscreen.di.StationsDepsStore
 
 class App : Application() {
 
-    private lateinit var appComponent: AppComponent
     override fun onCreate() {
         super.onCreate()
 
@@ -25,5 +23,11 @@ class App : Application() {
     private inner class AppDepsImpl : AppDeps {
 
         override val context: Context = this@App
+    }
+
+    companion object {
+
+        lateinit var appComponent: AppComponent
+            private set
     }
 }

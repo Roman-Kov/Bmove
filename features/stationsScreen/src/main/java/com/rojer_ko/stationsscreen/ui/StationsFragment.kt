@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -27,6 +28,7 @@ import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.rojer_ko.core.di.ViewModelFactory
+import com.rojer_ko.core.navigator.Navigator
 import com.rojer_ko.model.dto.info.StationsInfo
 import com.rojer_ko.stationsscreen.R
 import com.rojer_ko.stationsscreen.di.DaggerStationsComponent
@@ -37,6 +39,9 @@ class StationsFragment : Fragment() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
+    @Inject
+    lateinit var navigator: Navigator
+
     private val stationsComponent by lazy { DaggerStationsComponent.builder().deps(StationsDepsProvider.deps).build() }
     private val viewModel by lazy { ViewModelProvider(this, viewModelFactory)[StationsViewModel::class.java] }
 
@@ -76,11 +81,14 @@ class StationsFragment : Fragment() {
     fun ShowStation(station: StationsInfo) {
         Row(
             modifier = Modifier
+                .fillMaxWidth()
                 .background(
                     color = Color.White
                 )
-                .padding(all = 16.dp)
-                .clickable { }
+                .padding(horizontal = 16.dp, vertical = 5.dp)
+                .clickable {
+                    navigator.navigateToStationDetails(station.station_id)
+                }
         ) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally
