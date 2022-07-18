@@ -4,35 +4,24 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.rojer_ko.core.navigator.Navigator
+import com.rojer_ko.core.result.onEmpty
+import com.rojer_ko.core.result.onLoading
+import com.rojer_ko.core.result.onSuccess
 import com.rojer_ko.model.dto.info.StationsInfo
-import com.rojer_ko.stationsscreen.R
 import com.rojer_ko.stationsscreen.di.DaggerStationsComponent
 import com.rojer_ko.stationsscreen.di.StationsDepsProvider
 import com.rojer_ko.stationsscreen.di.StationsViewModelFactory
 import com.rojer_ko.uicore.Items
+import com.rojer_ko.uicore.ProgressBars
 import javax.inject.Inject
 
 class StationsFragment : Fragment() {
@@ -71,11 +60,19 @@ class StationsFragment : Fragment() {
     @Composable
     private fun ShowStations() {
         val stations by viewModel.stations.collectAsState()
-        LazyColumn {
-            items(stations) { station ->
-                ShowStation(station = station)
+        stations
+            .onEmpty {
             }
-        }
+            .onLoading {
+                ProgressBars.SimpleProgressBar()
+            }
+            .onSuccess { stationsInfo ->
+                LazyColumn {
+                    items(stationsInfo) { station ->
+                        ShowStation(station = station)
+                    }
+                }
+            }
     }
 
     @Composable
