@@ -32,6 +32,7 @@ import com.rojer_ko.stationsscreen.R
 import com.rojer_ko.stationsscreen.di.DaggerStationsComponent
 import com.rojer_ko.stationsscreen.di.StationsDepsProvider
 import com.rojer_ko.stationsscreen.di.StationsViewModelFactory
+import com.rojer_ko.uicore.Items
 import javax.inject.Inject
 
 class StationsFragment : Fragment() {
@@ -79,56 +80,8 @@ class StationsFragment : Fragment() {
 
     @Composable
     fun ShowStation(station: StationsInfo) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(
-                    color = Color.White
-                )
-                .padding(horizontal = 16.dp, vertical = 5.dp)
-                .clickable {
-                    navigator.navigateToStationDetails(station)
-                }
-        ) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.ic_bike),
-                    contentDescription = null,
-                    Modifier
-                        .size(40.dp)
-                )
-                if (station.is_charging_station) {
-                    Image(
-                        painter = painterResource(id = R.drawable.ic_charging),
-                        contentDescription = null,
-                        Modifier
-                            .size(20.dp)
-                    )
-                }
-            }
-            Spacer(modifier = Modifier.width(8.dp))
-            Column {
-                Text(
-                    text = station.name,
-                    color = Color.Black,
-                    style = TextStyle(
-                        fontSize = 15.sp,
-                        textAlign = TextAlign.Start,
-                        fontWeight = FontWeight.W600
-                    )
-                )
-                Text(
-                    text = station.physical_configuration,
-                    color = Color.Black,
-                    style = TextStyle(
-                        fontSize = 13.sp,
-                        textAlign = TextAlign.Start,
-                        fontWeight = FontWeight.W600
-                    )
-                )
-            }
+        Items.StationItem(station) {
+            navigator.navigateToStationDetails(station)
         }
     }
 }

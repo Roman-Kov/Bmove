@@ -29,14 +29,7 @@ android {
 
 dependencies {
     implementation(project(Modules.core))
-    implementation(project(Modules.uiCore))
 
-    implementation(Ui.fragments)
-    implementation(Ui.viewBinding)
-    implementation(Design.appcompat)
-    implementation(Design.constraintlayout)
-    implementation(Design.material)
-    implementation(Dagger.dagger)
     implementation(Compose.composeMaterial)
     implementation(Compose.composeFoundation)
     implementation(Compose.composeFoundationLayout)
@@ -45,7 +38,6 @@ dependencies {
     implementation(Compose.composeUi)
     implementation(Compose.composeLivecycle)
     implementation(Compose.composeUiTooling)
-    kapt(Dagger.daggerCompiler)
     testImplementation(Test.jUnit)
     androidTestImplementation(Test.androidJUnit)
     androidTestImplementation(Test.espressoCore)
