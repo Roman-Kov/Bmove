@@ -2,6 +2,7 @@ plugins {
     id(Plugins.androidLibrary)
     id(Plugins.kotlinAndroid)
     id(Plugins.kapt)
+    kotlin(Plugins.serialization)
 }
 
 android {
@@ -21,6 +22,7 @@ android {
 
 dependencies {
     implementation(Kotlin.core)
+    api(Kotlin.serialization)
     testImplementation(Test.jUnit)
     androidTestImplementation(Test.androidJUnit)
 }

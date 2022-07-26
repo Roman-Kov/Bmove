@@ -23,7 +23,10 @@ dependencies {
     api(project(Modules.model))
     api(project(Modules.utils))
 
-    implementation(Kotlin.core)
+    api(Kotlin.core)
+    api(Kotlin.coroutinesAndroidLibrary)
+    implementation(Dagger.dagger)
+    implementation(LiveCycle.viewmodel)
     testImplementation(Test.jUnit)
     androidTestImplementation(Test.androidJUnit)
 }

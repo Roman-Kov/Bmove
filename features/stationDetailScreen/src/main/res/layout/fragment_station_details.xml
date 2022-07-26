@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottieAnimation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:visibility="gone"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/anim" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/infoContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="16dp"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toStartOf="@id/location"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Station name" />
+
+                <ImageView
+                    android:id="@+id/location"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_location"
+                    app:layout_constraintBottom_toBottomOf="@id/name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/name" />
+
+                <ImageView
+                    android:id="@+id/stationImage"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="70dp"
+                    android:src="@drawable/ic_flag"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/name" />
+
+                <TextView
+                    android:id="@+id/stationTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/stations_title"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/gray"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/stationImage"
+                    app:layout_constraintStart_toEndOf="@id/stationImage"
+                    app:layout_constraintTop_toTopOf="@id/stationImage" />
+
+                <TextView
+                    android:id="@+id/stationCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/stationImage"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/stationImage"
+                    tools:text="10" />
+
+                <ImageView
+                    android:id="@+id/pBikeImage"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_pedal_bike"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/stationImage" />
+
+                <TextView
+                    android:id="@+id/pBikeTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/pedal_bikes_title"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/gray"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/pBikeImage"
+                    app:layout_constraintStart_toEndOf="@id/pBikeImage"
+                    app:layout_constraintTop_toTopOf="@id/pBikeImage" />
+
+                <TextView
+                    android:id="@+id/pBikeCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/pBikeImage"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/pBikeImage"
+                    tools:text="5" />
+
+                <ImageView
+                    android:id="@+id/eBikeImage"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_electric_bike"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pBikeImage" />
+
+                <TextView
+                    android:id="@+id/eBikeTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/electric_bike_title"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/gray"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/eBikeImage"
+                    app:layout_constraintStart_toEndOf="@id/eBikeImage"
+                    app:layout_constraintTop_toTopOf="@id/eBikeImage" />
+
+                <TextView
+                    android:id="@+id/eBikeCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16sp"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/eBikeImage"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/eBikeImage"
+                    tools:text="3" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </FrameLayout>
+    </ScrollView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
